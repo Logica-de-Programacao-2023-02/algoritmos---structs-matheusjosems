@@ -1,25 +1,25 @@
 package main
 
-type Aluno struct {
-	nome  string
-	idade int
-	notas []float64
+import "fmt"
+
+//Crie uma struct chamada Triângulo com os campos "base" e "altura".
+//Escreva uma função que receba um Triângulo como parâmetro e calcule
+//a área do triângulo (área = base * altura / 2).
+
+type triangulo struct {
+	base   float64
+	altura float64
+}
+
+func CalcularAreaDoTriangulo(triangulo triangulo) float64 {
+	return (triangulo.base * triangulo.altura) / 2
 }
 
 func main() {
-	Aluno := Aluno{
-		nome:  "fulano",
-		idade: 20,
-		notas: []float64{1, 2, 3, 4, 5, 6},
+	x := triangulo{
+		base:   5.0,
+		altura: 20.0,
 	}
-
-	calcularMediaAluno(Aluno)
-}
-
-func calcularMediaAluno(a Aluno) float64 {
-	var somatorio float64
-	for _, nota := range a.notas {
-		somatorio += nota
-	}
-	return somatorio / float64(len(a.notas))
+	area := CalcularAreaDoTriangulo(x)
+	fmt.Println("area do treiangulo:", area)
 }
